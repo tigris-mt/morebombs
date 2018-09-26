@@ -27,8 +27,8 @@ morebombs.register("morebombs:drill", {
     sounds = default.node_sound_metal_defaults(),
     groups = {cracky = 2},
     paramtype2 = "facedir",
-    action = function(pos)
-        morebombs.drill(pos, 5, minetest.facedir_to_dir(minetest.get_node(pos).param2))
+    action = function(pos, def, facedir)
+        morebombs.drill(pos, 5, minetest.facedir_to_dir(facedir or 0))
     end,
 })
 
@@ -55,8 +55,8 @@ morebombs.register("morebombs:drill_large", {
     sounds = default.node_sound_metal_defaults(),
     groups = {cracky = 2},
     paramtype2 = "facedir",
-    action = function(pos)
-        morebombs.drill(pos, 8, minetest.facedir_to_dir(minetest.get_node(pos).param2))
+    action = function(pos, def, facedir)
+        morebombs.drill(pos, 8, minetest.facedir_to_dir(facedir or 0))
     end,
 })
 

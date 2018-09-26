@@ -1,3 +1,7 @@
+local function pfd(pos)
+    return minetest.get_node(pos).param2
+end
+
 function morebombs.register(name, def, exists)
     local g = table.copy(def.groups or {})
     g.mesecon = 2
@@ -16,20 +20,20 @@ function morebombs.register(name, def, exists)
                 end
             end,
             on_blast = function(pos)
-                minetest.after(0.1, def.action, pos, def)
+                minetest.after(0.1, def.action, pos, def, pfd(pos))
             end,
             mesecons = {
                 effector = {
-                    action = function(pos)
-                        def.action(pos, def)
+                    action_on = function(pos)
+                        def.action(pos, def, pfd(pos))
                     end,
                 },
             },
             on_burn = function(pos)
-                def.action(pos, def)
+                def.action(pos, def, pfd(pos))
             end,
             on_ignite = function(pos)
-                def.action(pos, def)
+                def.action(pos, def, pfd(pos))
             end,
         })
     end
