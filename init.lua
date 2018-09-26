@@ -24,5 +24,5 @@ include("conventional.lua")
 include("drill.lua")
 
 if morebombs.nuclear then
-    --include("nuclear.lua")
+    include("nuclear.lua")
 end
