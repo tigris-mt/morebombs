@@ -8,6 +8,7 @@ function morebombs.register(name, def, exists)
             tiles = def.tiles,
             groups = g,
             sounds = def.sounds,
+            paramtype2 = def.paramtype2,
             after_place_node = function(pos, placer)
                 if placer:is_player() then
                     local meta = minetest.get_meta(pos)
