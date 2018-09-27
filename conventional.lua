@@ -61,3 +61,23 @@ minetest.register_craft{
     },
 }
 
+morebombs.register("morebombs:desolation", {
+    description = "Desolation",
+    tiles = {"morebombs_desolation.png"},
+    sounds = default.node_sound_metal_defaults(),
+    groups = {cracky = 2},
+    action = function(pos)
+        tnt.boom(pos, {
+            radius = 19,
+        })
+    end,
+})
+
+minetest.register_craft{
+    output = "morebombs:desolation",
+    recipe = {
+        {"default:mese", "morebombs:overkill", "default:mese"},
+        {"default:mese", "morebombs:overkill", "default:mese"},
+        {"default:mese", "morebombs:overkill", "default:mese"},
+    },
+}

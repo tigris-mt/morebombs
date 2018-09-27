@@ -13,6 +13,7 @@ include("api.lua")
 -- Allow default tnt to work with hooks.
 morebombs.register("tnt:tnt", {
     description = "TNT",
+    tiles = {"tnt_top.png"},
     action = function(pos)
         tnt.boom(pos, {
             radius = tonumber(minetest.settings:get("tnt_radius") or 3)

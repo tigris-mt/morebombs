@@ -50,7 +50,7 @@ end
 function morebombs.register_hook(f)
     -- Run function for prior.
     for k,v in pairs(morebombs.bombs) do
-        morebombs.hook(k, v)
+        f(k, v)
     end
     -- Register function for later.
     local old = morebombs.hook

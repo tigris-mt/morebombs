@@ -43,9 +43,9 @@ minetest.register_craft{
     },
 }
 
-morebombs.register("morebombs:armageddon", {
-    description = "Armageddon",
-    tiles = {"morebombs_armageddon.png"},
+morebombs.register("morebombs:infused_nuclear_bomb", {
+    description = "Infused Nuclear Bomb",
+    tiles = {"morebombs_infused.png"},
     sounds = default.node_sound_metal_defaults(),
     groups = {cracky = 2},
     action = function(pos)
@@ -54,10 +54,29 @@ morebombs.register("morebombs:armageddon", {
 })
 
 minetest.register_craft{
-    output = "morebombs:armageddon",
+    output = "morebombs:infused_nuclear_bomb",
     recipe = {
         {"morebombs:nuclear_bomb", "morebombs:nuclear_bomb", "morebombs:nuclear_bomb"},
         {"technic:stainless_steel_block", "morebombs:nuclear_bomb", "technic:stainless_steel_block"},
+        {"technic:stainless_steel_block", "default:diamondblock", "technic:stainless_steel_block"},
+    },
+}
+
+morebombs.register("morebombs:armageddon", {
+    description = "Armageddon",
+    tiles = {"morebombs_armageddon.png"},
+    sounds = default.node_sound_metal_defaults(),
+    groups = {cracky = 2},
+    action = function(pos)
+        morebombs.nuke(pos, 30)
+    end,
+})
+
+minetest.register_craft{
+    output = "morebombs:armageddon",
+    recipe = {
+        {"morebombs:infused_nuclear_bomb", "morebombs:thunderfist", "morebombs:infused_nuclear_bomb"},
+        {"technic:stainless_steel_block", "morebombs:infused_nuclear_bomb", "technic:stainless_steel_block"},
         {"technic:stainless_steel_block", "default:diamondblock", "technic:stainless_steel_block"},
     },
 }
